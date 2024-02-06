@@ -1,0 +1,76 @@
+﻿@model AutocompleteAspNetMvc.Models.Cliente
+
+@{
+    ViewBag.Title = "Novo cliente";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card-header">
+        <h3>Novo cliente</h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CEP, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UF, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.UF, (SelectList)ViewBag.Estados, new { @class = "form-control", id = "select-uf" })
+                    @Html.ValidationMessageFor(model => model.UF, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col">
+                @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label" })
+                <input type="text" id="txt-cidade" class="form-control" />
+                <input type="hidden" id="hidden-cidade" name="IdCidade"/>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <input type="button" value="Voltar" onclick="window.history.back()" class="btn btn-secondary" />
+    </div>
+}
+
+@section scripts {
+    <script src="~/Scripts/jquery.easy-autocomplete.min.js"></script>
+    <script src="~/Scripts/autocomplete-cidades.js"></script>
+}
