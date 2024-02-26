@@ -7,6 +7,10 @@
 * Entity Framework
 
  ## Execução do Entity Framework nas IDE's: VS 2015/2017:
+
+ <details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
  
  Ao realizar os comandos:
  
@@ -47,8 +51,14 @@ Web.Config
 </connectionStrings>
 ```
 
+</details>
+
+
 ## Controller
 
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 ### CidadesController
 
 ```
@@ -65,7 +75,16 @@ var db = new ClientesContext();
             return Json(cidades, JsonRequestBehavior.AllowGet);
 ```
 
+
+</details>
+
+
+
 ## Scripts
+
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 
 ```
 Scripts/umd/autocomplete-cidades.js
@@ -83,9 +102,16 @@ Utiliza easycomplete de jquery-easy-autocomplete para exibir os dados
    $("#txt-cidade").easyAutocomplete(options);
 ```
 
+
+</details>
+
 ## Resultado
 
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1204509983593726043/image.png?ex=65d4fe56&is=65c28956&hm=851a07fe3bd365686e23b9fe99e67887a7b260baedb825761b4718a05f12320f&" alt="">
+<div align="center">
+<img src="https://github.com/lucasmargui/ASP_Campo_Autocomplete/assets/157809964/3093771a-a72d-43e9-9929-a149d654ab91" style="width:100%">
+</div>
+
+
 
 
 
