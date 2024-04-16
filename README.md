@@ -1,53 +1,58 @@
-<H1 align="center">Estrutura Campo Autocomplete</H1>
-<p align="center">🚀 Projeto de criação de uma estrutura utilizando um campo de autocomplete para referências futuras</p>
+<H1 align="center">Autocomplete Field Structure</H1>
+<p align="center">🚀 Project to create a structure using an autocomplete field for future references</p>
 
-## Recursos Utilizados
+## Resources Used
 
-* Jquery-easy-autocomplete
+* jquery-easy-autocomplete
 * Entity Framework
 
- ## Execução do Entity Framework nas IDE's: VS 2015/2017:
 
- <details>
-  <summary>Clique para mostrar conteúdo</summary>
+<div align="center">
+<img src="https://github.com/lucasmargui/ASP_Campo_Autocomplete/assets/157809964/3093771a-a72d-43e9-9929-a149d654ab91" style="width:100%">
+</div>
+
+  ## Entity Framework execution in IDE's: VS 2015/2017:
+
+  <details>
+   <summary>Click to show content</summary>
   
  
- Ao realizar os comandos:
+  When executing the commands:
  
-  ```
-    Enable-Migrations
-  ```
-  e
+   ```
+     Enable-Migrations
+   ```
+   It is
   
-  ```
-    Update-Database -Verbose
-  ```
+   ```
+     Update-Database -Verbose
+   ```
   
-Nas versões mais recentes do Visual Studio (2015/2017), se faz necessário criar uma nova instância do localdb do sql no seu computador. A qual poderá ser criado da seguinte maneira:
+In the most recent versions of Visual Studio (2015/2017), it is necessary to create a new instance of sql localdb on your computer. Which can be created in the following way:
 
-Passo 1: Abrir o cmd e executar o seguinte comando:
-  ```
-  SqlLocalDB.exe create "Local"
-  ```
-Passo 2: Executar a instance com seguinte comando:
-  ```
-  SqlLocalDb.exe start
-  ```
+Step 1: Open cmd and execute the following command:
+   ```
+   SqlLocalDB.exe create "Local"
+   ```
+Step 2: Run the instance with the following command:
+   ```
+   SqlLocalDb.exe start
+   ```
   
-Passo 3: Ir até o 'Package Manager Console' e executar o seguinte comando:
-  ```
-  Update-Database -Verbose
-  ```
+Step 3: Go to the 'Package Manager Console' and execute the following command:
+   ```
+   Update-Database -Verbose
+   ```
 
-## Alteração da String de conexão
+## Changing the connection string
 
-Configurar a connectionStrings com banco de dados local onde 'name' será utilizado como referência para conexão com Entity Framework
+Configure connectionStrings with local database where 'name' will be used as a reference for connecting to Entity Framework
 ```
 Web.Config
 ```
 ```
 <connectionStrings>
-<add name="DbAutocomplete" connectionString="Data Source= (localdb)\Local;Initial Catalog=DbAutocomplete;Integrated Security=True;"  providerName="System.Data.SqlClient" />
+<add name="DbAutocomplete" connectionString="Data Source= (localdb)\Local;Initial Catalog=DbAutocomplete;Integrated Security=True;" providerName="System.Data.SqlClient" />
 </connectionStrings>
 ```
 
@@ -57,22 +62,22 @@ Web.Config
 ## Controller
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
+   <summary>Click to show content</summary>
   
-### CidadesController
+### CitiesController
 
 ```
-Controller/CidadesController.cs
+Controller/CitiesController.cs
 ```
 
-Retorna um Json com dados das cidades correspondentes ao distrito selecionado
+Returns a Json with data from the cities corresponding to the selected district
 
 ```
 var db = new ClientesContext();
-            var cidades = db.Cidades
-                            .Where(c => c.UF == uf)
-                            .Select(c => new { Id = c.Id, Nome = c.Nome });
-            return Json(cidades, JsonRequestBehavior.AllowGet);
+             var cities = db.Cities
+                             .Where(c => c.UF == uf)
+                             .Select(c => new { Id = c.Id, Name = c.Name });
+             return Json(cities, JsonRequestBehavior.AllowGet);
 ```
 
 
@@ -83,35 +88,25 @@ var db = new ClientesContext();
 ## Scripts
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
+   <summary>Click to show content</summary>
   
 
 ```
 Scripts/umd/autocomplete-cidades.js
 ```
 
-Através de ListarCidadesPorUF pelo método GET de CidadesController retorna um JsonResult com os dados da tabela correspondente com UF
+Through ListarCidadesPorUF through the GET method of CidadesController returns a JsonResult with the data from the corresponding table with UF
 
 ```
-return "/Cidades/ListarCidadesPorUF?uf=" + uf;
+return "/Cities/ListCitiesByUF?uf=" + uf;
 
 ```
 
-Utiliza easycomplete de jquery-easy-autocomplete para exibir os dados
+Uses easycomplete from jquery-easy-autocomplete to display the data
 ```
-   $("#txt-cidade").easyAutocomplete(options);
+    $("#txt-cidade").easyAutocomplete(options);
 ```
 
 
 </details>
-
-## Resultado
-
-<div align="center">
-<img src="https://github.com/lucasmargui/ASP_Campo_Autocomplete/assets/157809964/3093771a-a72d-43e9-9929-a149d654ab91" style="width:100%">
-</div>
-
-
-
-
 
