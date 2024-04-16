@@ -8,7 +8,7 @@
 
 
 <div align="center">
-<img src="https://github.com/lucasmargui/ASP_Campo_Autocomplete/assets/157809964/3093771a-a72d-43e9-9929-a149d654ab91" style="width:100%">
+<img src="https://github.com/lucasmargui/ASP_Campo_Autocomplete/assets/157809964/3093771a-a72d-43e9-9929-a149d654ab91" style="width:70%">
 </div>
 
   ## Entity Framework execution in IDE's: VS 2015/2017:
